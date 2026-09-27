@@ -1,9 +1,13 @@
-export function initForm(){let e=document.getElementById("container-formulario");if(!e)return;e.innerHTML=`
+export function initForm() {
+    const container = document.getElementById("container-formulario");
+    if (!container) return;
+
+    container.innerHTML = `
         <section>
-            <h2>Cadastro de Participa\xe7\xe3o</h2>
+            <h2>Cadastro de Participação</h2>
             <form id="form-cadastro" novalidate>
                 <fieldset>
-                    <legend>Informa\xe7\xf5es Pessoais</legend>
+                    <legend>Informações Pessoais</legend>
                     
                     <label for="nome">Nome Completo: *</label>
                     <input type="text" id="nome" name="nome" required aria-required="true" placeholder="Digite seu nome completo">
@@ -16,8 +20,8 @@ export function initForm(){let e=document.getElementById("container-formulario")
 
                     <label for="tipo-apoio">Como deseja apoiar? *</label>
                     <select id="tipo-apoio" name="tipoApoio" required aria-required="true">
-                        <option value="">Selecione uma op\xe7\xe3o</option>
-                        <option value="voluntario">Volunt\xe1rio</option>
+                        <option value="">Selecione uma opção</option>
+                        <option value="voluntario">Voluntário</option>
                         <option value="doador">Doador</option>
                         <option value="parceiro">Parceiro Institucional</option>
                     </select>
@@ -27,4 +31,44 @@ export function initForm(){let e=document.getElementById("container-formulario")
             </form>
             <div id="mensagem-feedback" aria-live="polite" style="margin-top: 15px; font-weight: bold;"></div>
         </section>
-    `;let o=document.getElementById("form-cadastro"),t=document.getElementById("mensagem-feedback"),a=localStorage.getItem("dadosCadastro");if(a){let i=JSON.parse(a);document.getElementById("nome").value=i.nome||"",document.getElementById("email").value=i.email||"",document.getElementById("telefone").value=i.telefone||"",document.getElementById("tipo-apoio").value=i.tipoApoio||""}o.addEventListener("submit",e=>{e.preventDefault();let o=document.getElementById("nome").value.trim(),a=document.getElementById("email").value.trim(),i=document.getElementById("tipo-apoio").value;if(!o||!a||!i){t.style.color="#d9534f",t.textContent="Por favor, preencha todos os campos obrigat\xf3rios marcados com asterisco.";return}let l={nome:o,email:a,telefone:document.getElementById("telefone").value.trim(),tipoApoio:i,dataRegistro:new Date().toISOString()};localStorage.setItem("dadosCadastro",JSON.stringify(l)),t.style.color="#28a745",t.textContent="Cadastro realizado e salvo com sucesso!"})}
+    `;
+
+    const form = document.getElementById("form-cadastro");
+    const feedback = document.getElementById("mensagem-feedback");
+
+    // Carregar dados salvos anteriormente no localStorage se existirem
+    const dadosSalvos = localStorage.getItem("dadosCadastro");
+    if (dadosSalvos) {
+        const dados = JSON.parse(dadosSalvos);
+        document.getElementById("nome").value = dados.nome || "";
+        document.getElementById("email").value = dados.email || "";
+        document.getElementById("telefone").value = dados.telefone || "";
+        document.getElementById("tipo-apoio").value = dados.tipoApoio || "";
+    }
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const nome = document.getElementById("nome").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const tipoApoio = document.getElementById("tipo-apoio").value;
+
+        if (!nome || !email || !tipoApoio) {
+            feedback.style.color = "#d9534f";
+            feedback.textContent = "Por favor, preencha todos os campos obrigatórios marcados com asterisco.";
+            return;
+        }
+
+        const formData = {
+            nome,
+            email,
+            telefone: document.getElementById("telefone").value.trim(),
+            tipoApoio,
+            dataRegistro: new Date().toISOString()
+        };
+
+        localStorage.setItem("dadosCadastro", JSON.stringify(formData));
+        feedback.style.color = "#28a745";
+        feedback.textContent = "Cadastro realizado e salvo com sucesso!";
+    });
+}

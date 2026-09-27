@@ -1,0 +1,24 @@
+{
+  "name": "cds_front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WillianDn20/front-cds-williandiasn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/WillianDn20/front-cds-williandiasn/issues"
+  },
+  "homepage": "https://github.com/WillianDn20/front-cds-williandiasn#readme",
+  "devDependencies": {
+    "gh-pages": "^6.3.0"
+  }
+}
