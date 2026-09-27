@@ -1,0 +1,1 @@
+import{renderGlobalComponents as e,renderTemplatesProjetos as t}from"./components.js";import{initRouter as o}from"./router.js";import{initForm as r}from"./form.js";document.addEventListener("DOMContentLoaded",()=>{e(),o(),document.getElementById("container-templates")&&t(),document.getElementById("container-formulario")&&r()});
