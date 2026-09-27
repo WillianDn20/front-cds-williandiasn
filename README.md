@@ -17,19 +17,30 @@ O projeto foi estruturado com foco em performance, acessibilidade e boas prátic
 
 ```text
 ├── css/
-│   └── style.min.css
-├── js/
-│   ├── app.min.js
-│   ├── components.min.js
-│   ├── form.min.js
-│   └── router.min.js
+│   └── style.css
+├── dist/
+│   ├── css/
+│   │   └── style.css
+│   ├── js/
+│   │   ├── app.js
+│   │   ├── components.js
+│   │   ├── form.js
+│   │   └── router.js
+│   ├── cadastro.html
+│   ├── index.html
+│   └── projetos.html
 ├── imagens/
 │   ├── avif/
-│   ├── webp/
-│   └── png/
+│   ├── png/
+│   └── webp/
+├── js/
+│   ├── app.js
+│   ├── components.js
+│   ├── form.js
+│   └── router.js
+├── cadastro.html
 ├── index.html
-├── projetos.min.html
-└── cadastro.min.html
+|── projetos.html
 
 ```
 
